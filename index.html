@@ -3,168 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis XV Años - Camila Reyes Sánchez</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Mis XV Años - Camila</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header con menú fijo -->
+
+    <audio id="bgMusic" loop>
+        <source src="joan.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="smoke-background-header-extended"></div>
+
     <header id="header">
         <div class="container header-container">
-            <a href="#" class="logo"><i class="fas fa-crown"></i>Camila</a>
-            
+            <a href="#" class="logo">Camila</a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
-            
             <nav id="nav">
                 <ul>
                     <li><a href="#home">Inicio</a></li>
                     <li><a href="#details">Detalles</a></li>
                     <li><a href="#countdown">Cuenta Regresiva</a></li>
                     <li><a href="#thanks">Agradecimientos</a></li>
+                    <li class="music-li">
+                        <button id="menuPlayBtn" class="btn-music glow-hover"><i class="fas fa-music"></i></button>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Sección Hero / Inicio -->
+    <div class="frame-overlay">
+        <img src="img/marco 1.jpg" class="corner-frame-fixed top-left-fixed multiply" alt="decoracion">
+    </div>
+
     <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Mis XV Años</h1>
-                <div class="name">Camila Reyes Sánchez</div>
-                <div class="date">27 · DICIEMBRE · 2025</div>
-                <p class="hero-description">
-                    Con gran alegría los invito a compartir conmigo este día tan especial. 
-                    Será una celebración llena de amor, música y momentos inolvidables que 
-                    atesoraré por siempre en mi corazón.
-                </p>
-                <a href="#details" class="btn btn-outline">Ver Detalles </a>
+        <div class="hero-content relative-z">
+            <h2 class="pre-title script-font">Mis</h2>
+            <h1 class="main-title serif-font">XV Años</h1>
+
+            <div class="photo-container main-photo-frame glow-soft">
+                <div class="photo-mask">
+                    <img src="img/cami.jpg" alt="Camila Reyes">
+                </div>
+            </div>
+
+            <div class="name-block">
+                <div class="name-script script-font">Camila Reyes</div>
+                <div class="surname-script script-font">Sánchez</div>
+            </div>
+
+            <div class="date-hero serif-font">27 · DICIEMBRE · 2025</div>
+
+            <p class="hero-text">
+                Con gran alegría los invito a compartir conmigo este día tan especial. 
+                Será una celebración llena de amor, música y momentos inolvidables.
+            </p>
+
+            <div class="player-wrapper">
+                <p>Escuchar canción de fondo</p>
+                <div class="player-pill glass-effect">
+                    <button id="heroPlayBtn" class="play-btn-hero glow-hover"><i class="fas fa-play"></i></button>
+                    <div class="sound-wave">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="img/mariposa_1.png" class="butterfly b-left float-anim" alt="mariposa">
+        <img src="img/mariposa_2.png" class="butterfly b-right-adjusted float-anim-delayed" alt="mariposa">
+    </section>
+
+    <hr class="linea-horizontal-purpura">
+
+    <section class="section details-unified" id="details">
+        <div class="unified-smoke-bg"></div>
+
+        <div class="container relative-z">
+            <div class="heading-container">
+                <h2 class="section-title serif-font">Detalles de la Celebración</h2>
+                <p class="subtitle script-font">Acompáñame en este día inolvidable</p>
+            </div>
+
+            <div class="locations-unified-container glass-effect-light glow-soft">
+                
+                <div class="location-block">
+                    <div class="icon-jewel-small"><i class="fas fa-church"></i></div>
+                    <h3 class="serif-font color-purple-dark">Ceremonia Religiosa</h3>
+                    <div class="time serif-font color-purple">1:00 p.m.</div>
+                    <p class="place">Capilla de la Colonia 3 de Mayo<br>San Martín Achichica</p>
+                    <a href="#" class="btn-map-elegant small glow-hover">Ver Ubicación</a>
+                </div>
+
+                <div class="location-divider-vertical"></div>
+
+                <div class="location-block">
+                    <div class="icon-jewel-small"><i class="fas fa-glass-cheers"></i></div>
+                    <h3 class="serif-font color-purple-dark">Recepción Social</h3>
+                    <div class="time serif-font color-purple">3:00 p.m.</div>
+                    <p class="place">Cancha de San Martín Alchichica<br>Izucar de Matamoros, Puebla</p>
+                    <a href="#" class="btn-map-elegant small glow-hover">Ver Ubicación</a>
+                </div>
+
+            </div>
+        </div>
+        <img src="img/mariposa_3.png" class="butterfly b-mid float-anim" alt="mariposa">
+    </section>
+
+    <hr class="linea-horizontal-purpura">
+
+    <section class="cabalgata-section">
+        <div class="cabalgata-overlay"></div>
+        <div class="container relative-z cabalgata-content">
+            <div class="icon-jewel-large glow-soft">
+                <i class="fas fa-horse"></i>
+            </div>
+            <h2 class="section-title color-white serif-font">Cabalgata</h2>
+            <p class="cabalgata-text color-white">
+                Después de la ceremonia religiosa, la quinceañera regresará en una hermosa cabalgata 
+                acompañada de familiares y amigos. ¡Únete a esta tradición llena de alegría!
+            </p>
+
+        </div>
+    </section>
+
+    <hr class="linea-horizontal-purpura">
+
+    <section class="countdown-section-smoke-clean" id="countdown">
+        <div class="container relative-z">
+            <p class="countdown-title serif-font color-purple-dark">SOLO FALTAN</p>
+            <div class="timer-grid-2x2">
+                <div class="sphere-large glow-soft glass-effect-high-contrast"><span id="days" class="serif-font">00</span><label>DÍAS</label></div>
+                <div class="sphere-large glow-soft glass-effect-high-contrast"><span id="hours" class="serif-font">00</span><label>HRS</label></div>
+                <div class="sphere-large glow-soft glass-effect-high-contrast"><span id="minutes" class="serif-font">00</span><label>MIN</label></div>
+                <div class="sphere-large glow-soft glass-effect-high-contrast"><span id="seconds" class="serif-font">00</span><label>SEG</label></div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Detalles -->
-    <section class="details-section" id="details">
-        <div class="container">
-            <h2>Ceremonia Religiosa</h2>
-            <p class="section-subtitle">Un día lleno de bendiciones y celebraciones para compartir con familiares y amigos</p>
-            
-            <div class="details-container">
-                <div class="detail-card">
-                    <i class="fas fa-church"></i>
-                    <h3>Misa de Acción de Gracias</h3>
-                    <div class="time">1:00 p.m.</div>
-                    <div class="location">Capilla de la Colonia 3 de Mayo<br>San Martín Achichica</div>
-                    <p>Una ceremonia llena de bendiciones para celebrar este momento tan especial en mi vida.</p>
-                    
-                    <div class="divider"></div>
-                    
-                    <h4>Cómo Llegar</h4>
-                    <a href="https://maps.app.goo.gl/mmDTCpLfxZydXePC7" target="_blank" class="btn">
-                        <i class="fas fa-map-marker-alt"></i> Ver Ubicación
-                    </a>
-                </div>
-                
-                <div class="detail-card">
-                    <i class="fas fa-glass-cheers"></i>
-                    <h3>Recepción</h3>
-                    <div class="time">3:00 p.m.</div>
-                    <div class="location">Cancha de San Martín Alchichica<br>Izucar de Matamoros, Puebla</div>
-                    <p>Una tarde-noche llena de música, baile y alegría compartiendo con familiares y amigos.</p>
-                    
-                    <div class="divider"></div>
-                    
-                    <h4>Cómo Llegar</h4>
-                    <a href="https://maps.app.goo.gl/UUDaqRd267yvzC987" target="_blank" class="btn">
-                        <i class="fas fa-map-marker-alt"></i> Ver Ubicación
-                    </a>
+    <hr class="linea-horizontal-purpura">
+
+    <section class="section thanks-frame-section-wide" id="thanks">
+        <div class="container relative-z">
+            <div class="thanks-frame-container-wide glow-soft">
+                <img src="img/marco 2.jpg" class="main-frame-bg-wide multiply" alt="marco floral">
+                <div class="thanks-content-wide readable-bg-soft">
+                    <h2 class="section-title color-purple-dark serif-font">Agradecimientos</h2>
+                    <p class="thanks-text">Agradezco profundamente a mis padres, quienes han sido mi guía y apoyo incondicional en cada paso de mi vida. Su amor hace posible este día.</p>
+                    <p class="thanks-text">A mis padrinos, familiares y amigos, gracias por estar presentes. Sus bendiciones llenan mi corazón de alegría.</p>
+                    <div class="signature script-font color-purple">Con cariño, Camila</div>
                 </div>
             </div>
         </div>
+        <img src="img/mariposa_4.png" class="butterfly b-top-right float-anim-delayed" alt="mariposa">
     </section>
 
-    <!-- Sección Contador -->
-    <section class="countdown-section" id="countdown">
-        <div class="container countdown-container">
-            <div class="countdown-title">Faltan</div>
-            <p class="section-subtitle">Para celebrar juntos este momento tan especial</p>
-            
-            <div class="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="days">00</div>
-                    <div class="countdown-label">Días</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="hours">00</div>
-                    <div class="countdown-label">Horas</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="minutes">00</div>
-                    <div class="countdown-label">Minutos</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="seconds">00</div>
-                    <div class="countdown-label">Segundos</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Agradecimientos -->
-    <section class="thanks-section" id="thanks">
-        <div class="container">
-            <h2>Agradecimientos</h2>
-            
-            <div class="thanks-content">
-                <p class="thanks-text">
-                    Agradezco profundamente a mis padres, quienes han sido mi guía y apoyo incondicional en cada paso de mi vida. 
-                    Su amor y dedicación han hecho posible este hermoso día.
-                </p>
-                <p class="thanks-text">
-                    A mis padrinos, familiares y amigos, les doy las gracias por estar presentes en este momento tan significativo 
-                    para mí. Sus bendiciones y buenos deseos llenan mi corazón de alegría.
-                </p>
-                <p class="thanks-text">
-                    A todos mis seres queridos que han formado parte de mi crecimiento, les comparto mi gratitud. 
-                    Este día no sería posible sin el amor y cariño que cada uno de ustedes me ha brindado.
-                </p>
-                
-                <div class="invitation-message">
-                    <h3>¡Espero Verte en Mi Celebración!</h3>
-                    <p>Tu presencia será el mejor regalo en este día tan especial para mí.</p>
-                </div>
-                
-                <div class="blessing-message">
-                    <p>Con la bendición de Dios y el amor de mi familia, celebro mis 15 años. ¡Gracias por ser parte de este momento tan especial!</p>
-                </div>
-                
-                <div class="signature">Con cariño, Camila</div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Footer con contacto discreto -->
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-logo">Mis <span>XV</span> Años</div>
-            
-            <div class="footer-contact">
-                <a href="/" class="designer-credit">
-                    <p class="no-margin">DanielRC</p>
-                </a>
-                
-                <nav class="navegacion">
-                    <a href="https://wa.link/m5axbj" class="contact-link" target="_blank">
+    <footer id="footer-discreet">
+        <div class="container footer-content-discreet">
+            <div class="footer-logo-small script-font">Mis <span>XV</span> Años</div>
+            <div class="footer-links-discreet">
+                <nav class="navegacion-discreet">
+                    <a href="https://wa.link/m5axbj" class="contact-link-discreet" target="_blank">
                         ¿Deseas una invitación o página Web? Contáctame
-                        <div class="wp">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="whatsapp">
-                        </div>
+                        <span class="wp-icon-small"><i class="fab fa-whatsapp"></i></span>
                     </a>
                 </nav>
+                <a href="/" class="designer-credit-small"><p class="no-margin">DanielRC</p></a>
             </div>
         </div>
     </footer>

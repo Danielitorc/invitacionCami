@@ -1,83 +1,63 @@
-// JavaScript para la página de XV años - Camila Reyes Sánchez
-
-// Cambiar color del header al hacer scroll
-window.addEventListener('scroll', function() {
-    const header = document.getElementById('header');
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
+document.addEventListener('DOMContentLoaded', () => {
+    // MENÚ
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navUl = document.querySelector('nav ul');
+    if(menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            navUl.classList.toggle('active');
+        });
     }
-});
-
-// Menú móvil
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const nav = document.getElementById('nav');
-const navLinks = document.querySelectorAll('nav ul li a');
-
-mobileMenuBtn.addEventListener('click', function() {
-    nav.querySelector('ul').classList.toggle('active');
-    mobileMenuBtn.innerHTML = nav.querySelector('ul').classList.contains('active') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
-});
-
-// Cerrar menú al hacer clic en un enlace
-navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-        nav.querySelector('ul').classList.remove('active');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    document.querySelectorAll('nav ul a').forEach(link => {
+        link.addEventListener('click', () => navUl.classList.remove('active'));
     });
-});
 
-// Contador en cuenta regresiva
-function updateCountdown() {
-    const targetDate = new Date('December 27, 2025 13:00:00').getTime();
-    const now = new Date().getTime();
-    const timeLeft = targetDate - now;
-
-    if (timeLeft < 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        return;
+    // CONTADOR
+    const targetDate = new Date('December 27, 2025 15:00:00').getTime();
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+        if (diff < 0) return;
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+        document.getElementById('days').innerText = d < 10 ? '0'+d : d;
+        document.getElementById('hours').innerText = h < 10 ? '0'+h : h;
+        document.getElementById('minutes').innerText = m < 10 ? '0'+m : m;
+        document.getElementById('seconds').innerText = s < 10 ? '0'+s : s;
     }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    // AUDIO
+    const audio = document.getElementById('bgMusic');
+    const playBtns = [document.getElementById('menuPlayBtn'), document.getElementById('heroPlayBtn')];
+    let isPlaying = false;
+    const togglePlay = () => {
+        if (isPlaying) audio.pause();
+        else audio.play().catch(e => console.log("Click necesario"));
+        isPlaying = !isPlaying;
+        updateIcons();
+    };
+    const updateIcons = () => {
+        playBtns.forEach(btn => {
+            if(!btn) return;
+            const icon = btn.querySelector('i');
+            if (isPlaying) {
+                icon.classList.remove('fa-play', 'fa-music'); icon.classList.add('fa-pause');
+            } else {
+                icon.classList.remove('fa-pause'); icon.classList.add('fa-play');
+                if(btn.id === 'menuPlayBtn') { icon.classList.remove('fa-play'); icon.classList.add('fa-music'); }
+            }
+        });
+    };
+    playBtns.forEach(btn => { if(btn) btn.addEventListener('click', togglePlay); });
 
-    document.getElementById('days').textContent = days < 10 ? '0' + days : days;
-    document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-    document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-    document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
-}
-
-// Inicializar contador y actualizar cada segundo
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-// Smooth scroll para los enlaces del menú
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Efecto de carga inicial
-window.addEventListener('load', function() {
-    document.body.classList.add('loaded');
+    audio.volume = 0.5;
+    const autoStart = () => {
+        audio.play().then(() => { isPlaying = true; updateIcons(); }).catch(() => {
+            document.addEventListener('click', autoStart, { once: true });
+        });
+    };
+    autoStart();
 });
