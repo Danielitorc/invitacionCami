@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // MENÚ
+    // 1. MENÚ DE NAVEGACIÓN
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navUl = document.querySelector('nav ul');
     if(menuBtn) {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => navUl.classList.remove('active'));
     });
 
-    // CONTADOR
+    // 2. CUENTA REGRESIVA
     const targetDate = new Date('December 27, 2025 15:00:00').getTime();
     function updateCountdown() {
         const now = new Date().getTime();
@@ -29,16 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // AUDIO
+    // 3. AUDIO (LÓGICA CORREGIDA)
     const audio = document.getElementById('bgMusic');
     const playBtns = [document.getElementById('menuPlayBtn'), document.getElementById('heroPlayBtn')];
     let isPlaying = false;
+
     const togglePlay = () => {
-        if (isPlaying) audio.pause();
-        else audio.play().catch(e => console.log("Click necesario"));
+        if (isPlaying) {
+            audio.pause();
+        } else {
+            // Intenta reproducir, si falla (por bloqueo del navegador) avisa en consola
+            audio.play().catch(e => console.log("Esperando interacción para reproducir..."));
+        }
         isPlaying = !isPlaying;
         updateIcons();
     };
+
     const updateIcons = () => {
         playBtns.forEach(btn => {
             if(!btn) return;
@@ -47,17 +53,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.remove('fa-play', 'fa-music'); icon.classList.add('fa-pause');
             } else {
                 icon.classList.remove('fa-pause'); icon.classList.add('fa-play');
+                // Si es el botón del menú, devolvemos el icono de nota musical
                 if(btn.id === 'menuPlayBtn') { icon.classList.remove('fa-play'); icon.classList.add('fa-music'); }
             }
         });
     };
+
+    // Asignar clic a los botones
     playBtns.forEach(btn => { if(btn) btn.addEventListener('click', togglePlay); });
 
+    // Configuración inicial de volumen
     audio.volume = 0.5;
+
+    // INTENTO DE AUTOPLAY AL PRIMER TOQUE (SOLUCIÓN PARA CELULARES)
     const autoStart = () => {
-        audio.play().then(() => { isPlaying = true; updateIcons(); }).catch(() => {
-            document.addEventListener('click', autoStart, { once: true });
+        audio.play().then(() => {
+            isPlaying = true;
+            updateIcons();
+            // Una vez que suena, dejamos de escuchar el clic para no reiniciarlo
+            document.removeEventListener('click', autoStart);
+            document.removeEventListener('touchstart', autoStart);
+        }).catch(() => {
+            // Si falla, sigue esperando al siguiente clic
         });
     };
+
+    // Intentamos reproducir apenas cargue la página
     autoStart();
+
+    // Si no funcionó al cargar (común en Chrome/Safari), esperamos al primer toque en cualquier lado
+    document.addEventListener('click', autoStart, { once: true });
+    document.addEventListener('touchstart', autoStart, { once: true });
 });
