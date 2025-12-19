@@ -59,7 +59,10 @@ nav a:hover { color: var(--purple-main); }
 .name-block { margin-bottom: 25px; } .name-script { font-size: 4.5rem; color: var(--purple-dark); line-height: 0.8; } .surname-script { font-size: 3.5rem; color: var(--purple-main); }
 .date-hero { font-weight: 700; letter-spacing: 4px; color: #34035f; margin: 10px 0; font-size: 1.1rem; display: inline-block; padding: 10px 20px; border-top: 2px solid #34035f; border-bottom: 2px solid #34035f; }
 .hero-text { max-width: 650px; margin: 0 auto 50px; font-style: italic; color: #34035f; font-size: 1.2rem; }
-.player-wrapper p { font-size: 0.9rem; margin-bottom: 8px; color: var(--purple-main); font-weight: 500; }
+.player-wrapper p { font-size: 0.9rem; margin-bottom: 8px; color: #300049; font-weight: 500; }
+.player-wrapper{
+    padding: 25px 20px 10px 20px;
+}
 .player-pill { border-radius: 50px; padding: 6px 25px 6px 6px; display: inline-flex; align-items: center; gap: 15px; }
 .play-btn-hero { width: 45px; height: 45px; background: var(--purple-main); border-radius: 50%; border: none; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: 0.3s; }
 .sound-wave span { display: inline-block; width: 3px; height: 15px; background: var(--purple-main); margin: 0 2px; opacity: 0.7; animation: wave 1.2s infinite ease-in-out; }
