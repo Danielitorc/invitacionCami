@@ -57,7 +57,7 @@ nav a:hover { color: var(--purple-main); }
 .photo-mask { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; border: 4px solid white; }
 .photo-mask img { width: 100%; height: 100%; object-fit: cover; }
 .name-block { margin-bottom: 25px; } .name-script { font-size: 4.5rem; color: var(--purple-dark); line-height: 0.8; } .surname-script { font-size: 3.5rem; color: var(--purple-main); }
-.date-hero { font-weight: 700; letter-spacing: 4px; color: #34035f; margin: 30px 0; font-size: 1.1rem; display: inline-block; padding: 10px 30px; border-top: 2px solid #34035f; border-bottom: 2px solid #34035f; }
+.date-hero { font-weight: 700; letter-spacing: 4px; color: #34035f; margin: 10px 0; font-size: 1.1rem; display: inline-block; padding: 10px 20px; border-top: 2px solid #34035f; border-bottom: 2px solid #34035f; }
 .hero-text { max-width: 650px; margin: 0 auto 50px; font-style: italic; color: #34035f; font-size: 1.2rem; }
 .player-wrapper p { font-size: 0.9rem; margin-bottom: 8px; color: var(--purple-main); font-weight: 500; }
 .player-pill { border-radius: 50px; padding: 6px 25px 6px 6px; display: inline-flex; align-items: center; gap: 15px; }
@@ -80,7 +80,7 @@ nav a:hover { color: var(--purple-main); }
 .details-unified { position: relative; background: #fff; overflow: hidden; }
 .unified-smoke-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('img/fondo 2.png') center center no-repeat; background-size: cover; opacity: 0.15; mix-blend-mode: multiply; pointer-events: none; z-index: 0; }
 .heading-container { padding: 0 20px; margin-bottom: 40px; text-align: center; }
-.section-title { font-size: 2.3rem; color: var(--purple-dark); text-align: center; margin-bottom: 5px; }
+.section-title { font-size: 2.1rem; color: var(--purple-dark); text-align: center; margin-bottom: 5px; }
 .subtitle { text-align: center; font-size: 2rem; color: var(--purple-main); margin-bottom: 40px; }
 .locations-unified-container { position: relative; z-index: 2; display: flex; align-items: stretch; justify-content: center; max-width: 900px; margin: 0 auto; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(5px); border-radius: 30px; padding: 50px 30px; border: 1px solid rgba(123, 75, 148, 0.1); }
 .location-block { flex: 1; text-align: center; padding: 0 20px; display: flex; flex-direction: column; align-items: center; }
@@ -91,6 +91,12 @@ nav a:hover { color: var(--purple-main); }
 .icon-jewel-small { width: 60px; height: 60px; background: #fff; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--purple-main); border: 2px solid var(--purple-soft); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 .btn-map-elegant.small { padding: 10px 30px; font-size: 0.9rem; border: 2px solid var(--purple-main); color: var(--purple-main); text-decoration: none; border-radius: 30px; transition: 0.3s; font-weight: 600; background: rgba(255,255,255,0.9); }
 .btn-map-elegant.small:hover { background: var(--purple-main); color: white; }
+
+
+.parents{
+    font-size: 2.1rem !important;
+    padding-bottom: 15px;
+}
 
 /* --- SECCIÓN CABALGATA --- */
 .cabalgata-section {
